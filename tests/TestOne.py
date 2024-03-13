@@ -1,5 +1,5 @@
-from tests.LoginPages import Google_login_page
-from tests.MainPage import Google_main_page
+from LoginPages import Google_login_page
+from MainPage import Google_main_page
 
 #the test goes to the site, enters a username in the username field, enters an sql injection in the password field,
 #clicks the Login button and checks whether the transition to the user's web page has occurred or not

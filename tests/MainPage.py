@@ -1,4 +1,4 @@
-from framework.BasePage import BasePage
+from ..framework.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 class Google_main_page(BasePage): 
