@@ -5,8 +5,7 @@ from selenium.webdriver.common.by import By
 #creating a subclass, with BasePage as the parent
 class Google_login_page(BasePage):
     
-    def __init__(self):
-        self.base_url = 'https://testfire.net/login.jsp'
+    base_url = 'https://testfire.net/login.jsp'
 
     #localization of the search bar by id in the code of a web resource
     LOCATOR_GOOGLE_SEARCH_FIELD = (By.ID, "query")
@@ -18,6 +17,8 @@ class Google_login_page(BasePage):
     LOCATOR_GOOGLE_PASSWORD_FIELD = (By.ID, "passw")
     #localization of the Login button by name in the code of a web resource
     LOCATOR_GOOGLE_LOGIN_BUTTON = (By.NAME, "btnSubmit")
+
+    LOCATOR_GOOGLE_FAIL_TEXT = (By.XPATH, '//*[@id="_ctl0__ctl0_Content_Main_message"]/text()')
 
     #entering in the "username" field
     def enter_word_username(self, word):
