@@ -1,8 +1,13 @@
-from Pages.BaseTest import BasePage
+from framework.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
-#creating a class that stores locators
-class GoogleSeacrhLocators:
+
+#creating a subclass, with BasePage as the parent
+class Google_login_page(BasePage):
+    
+    def __init__(self):
+        self.base_url = 'https://testfire.net/login.jsp'
+
     #localization of the search bar by id in the code of a web resource
     LOCATOR_GOOGLE_SEARCH_FIELD = (By.ID, "query")
     #localization of the search button by xpath in the code of a web resource
@@ -14,36 +19,33 @@ class GoogleSeacrhLocators:
     #localization of the Login button by name in the code of a web resource
     LOCATOR_GOOGLE_LOGIN_BUTTON = (By.NAME, "btnSubmit")
 
-#creating a subclass, with BasePage as the parent
-class SearchHelper(BasePage):
-
     #entering in the "username" field
     def enter_word_username(self, word):
-        search_field = self.find_element(GoogleSeacrhLocators.LOCATOR_GOOGLE_USERNAME_FIELD)
+        search_field = self.find_element(Google_login_page.LOCATOR_GOOGLE_USERNAME_FIELD)
         search_field.click()
         search_field.send_keys(word)
         return search_field
 
     #entering in the "password" field
     def enter_word_password(self, word):
-        search_field = self.find_element(GoogleSeacrhLocators.LOCATOR_GOOGLE_PASSWORD_FIELD)
+        search_field = self.find_element(Google_login_page.LOCATOR_GOOGLE_PASSWORD_FIELD)
         search_field.click()
         search_field.send_keys(word)
         return search_field
     
     #entering in the "search" field
     def enter_word_search(self, word):
-        search_field = self.find_element(GoogleSeacrhLocators.LOCATOR_GOOGLE_SEARCH_FIELD)
+        search_field = self.find_element(Google_login_page.LOCATOR_GOOGLE_SEARCH_FIELD)
         search_field.click()
         search_field.send_keys(word)
         return search_field
 
     #clicks on the "Login" button
     def click_on_the_login_button(self):
-        return self.find_element(GoogleSeacrhLocators.LOCATOR_GOOGLE_LOGIN_BUTTON,time=2).click()
+        return self.find_element(Google_login_page.LOCATOR_GOOGLE_LOGIN_BUTTON,time=2).click()
 
     #clicks on the "Go" button
     def click_on_the_search_button(self):
-        return self.find_element(GoogleSeacrhLocators.LOCATOR_GOOGLE_SEARCH_BUTTON).click()
+        return self.find_element(Google_login_page.LOCATOR_GOOGLE_SEARCH_BUTTON).click()
 
 
