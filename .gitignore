@@ -184,3 +184,5 @@ pyrightconfig.json
 .history
 .ionide
 *.png
+__init__.py
+__pycache__
