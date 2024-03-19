@@ -6,7 +6,7 @@ from ..framework.Browser import Browser
 @pytest.fixture(scope="function")
 #using chrome as a web driver, setting up to ignore certificate errors and closing the driver after it stops working
 def browser():
-    base_url = 'https://testfire.net/login.jsp'
+    
     options = 'Chrome'
     options.add_argument('--ignore-ssl-errors=yes')
     options.add_argument('--ignore-certificate-errors')
