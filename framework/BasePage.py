@@ -2,25 +2,28 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import abc
-from framework.Browser import Browser
+
 
 #creating a base class in base page
 class BasePage(abc.ABC):                     
 
     #initialization of the web driver and the URL of the web resource
-    def __init__(self, pagename, uniq_elem_locator):
+    def __init__(self, pagename, uniq_elem_locator, driver):
         self.pagename = pagename
-        self.uniq_elem_loc = uniq_elem_locator                    
+        self.uniq_elem_loc = uniq_elem_locator        
+        self.driver = driver            
 
-
+    #switching to an initialized URL using an initialized web driver
+    def go_to_site(self, base_url):
+        return self.driver.get(base_url)
 
     #search for a specific element of a web resource by locator
     def find_element(self, locator,time=10):
-        return WebDriverWait(Browser.driver,time).until(EC.presence_of_element_located(locator), message=f"Can't find element by locator {locator}")
+        return WebDriverWait(self.driver,time).until(EC.presence_of_element_located(locator), message=f"Can't find element by locator {locator}")
 
     #search for the absence of a certain element of a web resource by locator
     def find_missing_element(self, locator,time=10):
-        return WebDriverWait(Browser.driver,time).until_not(EC.presence_of_element_located(locator), message=f"Can't find element by locator {locator}")
+        return WebDriverWait(self.driver,time).until_not(EC.presence_of_element_located(locator), message=f"the element by the locator {locator} is present")
 
     #search for several specific elements of a web resource by locator
     def find_elements(self, locator,time=10):
