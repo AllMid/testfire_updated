@@ -6,8 +6,8 @@ from tests.MainPage import Google_main_page
 def test_google_sql_injections_passwd(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_username("admin")
-    google_auth_page.enter_word_password("' or 1=1--+")
+    google_auth_page.enter_username("admin")
+    google_auth_page.enter_password("' or 1=1--+")
     google_auth_page.click_on_the_login_button()
     assert google_auth_page.find_no_element(Google_main_page.LOCATOR_GOOGLE_TEXT_CONGRATULATIONS) is False
 
@@ -16,8 +16,8 @@ def test_google_sql_injections_passwd(browser):
 def test_google_sql_injections_uid(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_username("admin' or 1=1--+")
-    google_auth_page.enter_word_password("passwd")
+    google_auth_page.enter_username("admin' or 1=1--+")
+    google_auth_page.enter_password("passwd")
     google_auth_page.click_on_the_login_button()
     assert google_auth_page.find_no_element(Google_main_page.LOCATOR_GOOGLE_TEXT_CONGRATULATIONS) is False
 
@@ -25,6 +25,6 @@ def test_google_sql_injections_uid(browser):
 def test_google_sql_injections_search(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_search("' or 1=1--+")
+    google_auth_page.enter_search("' or 1=1--+")
     google_auth_page.click_on_the_search_button()
     assert google_auth_page.find_no_element(Google_main_page.LOCATOR_GOOGLE_TEXT_CONGRATULATIONS)

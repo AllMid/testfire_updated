@@ -1,12 +1,16 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import abc
+import Browser
+
 #creating a base class in base page
-class BasePage:                     
+class BasePage(abc.ABC):                     
 
     #initialization of the web driver and the URL of the web resource
-    def __init__(self, driver):
-        self.driver = driver                    
+    def __init__(self, pagename, uniq_elem_locator):
+        self.pagename = pagename
+        self.uniq_elem_loc = uniq_elem_locator                    
 
     #search for a specific element of a web resource by locator
     def find_element(self, locator,time=10):

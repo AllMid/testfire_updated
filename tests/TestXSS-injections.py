@@ -5,8 +5,8 @@ from tests.LoginPages import Google_login_page
 def test_google_xss_injections_passwd(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_username("admin")
-    google_auth_page.enter_word_password("<script>alert(123)</script>")
+    google_auth_page.enter_username("admin")
+    google_auth_page.enter_password("<script>alert(123)</script>")
     google_auth_page.click_on_the_login_button()
     assert google_auth_page.find_element_alert() is False
 
@@ -16,8 +16,8 @@ def test_google_xss_injections_passwd(browser):
 def test_google_xss_injections_uid(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_username("<script>alert(123)</script>")
-    google_auth_page.enter_word_password("passwd")
+    google_auth_page.enter_username("<script>alert(123)</script>")
+    google_auth_page.enter_password("passwd")
     google_auth_page.click_on_the_login_button()
     assert google_auth_page.find_element_alert() is False
 
@@ -27,6 +27,6 @@ def test_google_xss_injections_uid(browser):
 def test_google_xss_injections_search(browser):
     google_auth_page = Google_login_page(browser)
     google_auth_page.go_to_site(Google_login_page.base_url)
-    google_auth_page.enter_word_search("<script>alert(123)</script>")
+    google_auth_page.enter_search("<script>alert(123)</script>")
     google_auth_page.click_on_the_search_button()
     assert google_auth_page.find_element_alert() is False
