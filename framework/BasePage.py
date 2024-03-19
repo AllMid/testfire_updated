@@ -14,7 +14,7 @@ class BasePage(abc.ABC):
 
     #search for a specific element of a web resource by locator
     def find_element(self, locator,time=10):
-        return WebDriverWait(self.driver,time).until(EC.presence_of_element_located(locator), message=f"Can't find element by locator {locator}")
+        return WebDriverWait(Browser.driver,time).until(EC.presence_of_element_located(locator), message=f"Can't find element by locator {locator}")
 
     #search for the absence of a certain element of a web resource by locator
     def find_missing_element(self, locator,time=10):

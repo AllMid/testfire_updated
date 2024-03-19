@@ -1,14 +1,11 @@
-import Singleton
-import BrowserFactory
+from BrowserFactory import BrowserFactory
 
 class Browser(object):
 
     def browser(options):
-        browser_type = BrowserFactory
-        driver = Singleton
-        driver = 
+        driver = BrowserFactory(options)
         return driver
     
         #switching to an initialized URL using an initialized web driver
-    def go_to_site(self, base_url):
-        return self.driver.get(base_url)
+    def go_to_site(base_url):
+        return Browser.driver.get(base_url)

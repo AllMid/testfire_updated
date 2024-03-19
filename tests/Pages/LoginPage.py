@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 #creating a subclass, with BasePage as the parent
 class Login_page(BasePage):
     
-    base_url = 'https://testfire.net/login.jsp'
+    
 
     #localization of the search bar by xpath in the code of a web resource
     LOCATOR_SEARCH_FIELD = (By.XPATH, '//*[@id="query"]')
