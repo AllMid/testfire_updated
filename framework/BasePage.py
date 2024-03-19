@@ -12,9 +12,7 @@ class BasePage(abc.ABC):
         self.pagename = pagename
         self.uniq_elem_loc = uniq_elem_locator                    
 
-        #switching to an initialized URL using an initialized web driver
-    def go_to_site(base_url):
-        return Browser.browser.driver.get(base_url)
+
 
     #search for a specific element of a web resource by locator
     def find_element(self, locator,time=10):
