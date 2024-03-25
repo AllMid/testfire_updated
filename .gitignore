@@ -186,3 +186,4 @@ pyrightconfig.json
 *.png
 __init__.py
 .__pycache__
+__init__*
