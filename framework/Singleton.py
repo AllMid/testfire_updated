@@ -1,7 +1,8 @@
-class Singleton:
-    __instanse = None
+class Singleton(type):
+    _instances = {}
 
-    def __new__(cls):
-        if cls.__instanse is None:
-            cls.__instanse = super().__new__(cls)
-        return cls.__instanse
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
