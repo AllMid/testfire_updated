@@ -1,7 +1,9 @@
 from selenium import webdriver
+import logging
 
 class BrowserFactory(object):
-    def browserfactory(options):
+    def browser_change(options):
+        logging.info(f'the {options} browser is selected')
         if options == 'Chrome':
             return webdriver.Chrome()
         elif options == 'Edge':

@@ -1,5 +1,4 @@
 from framework.BasePage import BasePage
-from framework.BrowserPage import BrowserPage
 
 from selenium.webdriver.common.by import By
 
@@ -10,17 +9,17 @@ class Login_page(BasePage):
     
 
     #localization of the search bar by xpath in the code of a web resource
-    LOCATOR_SEARCH_FIELD = (By.XPATH, '//*[@id="query"]')
+    LOCATOR_SEARCH_FIELD = (By.XPATH, "/html/body/div/form/table/tbody/tr/td/input[@type='text']")
     #localization of the search button by xpath in the code of a web resource
-    LOCATOR_SEARCH_BUTTON = (By.XPATH, "//*[@id='frmSearch']/table/tbody/tr[1]/td[2]/input[2]")
+    LOCATOR_SEARCH_BUTTON = (By.XPATH, "/html/body/div/form/table/tbody/tr/td/input[@type='submit']")
     #localization of the username input string by xpath in the code of a web resource
-    LOCATOR_USERNAME_FIELD = (By.XPATH, '//*[@id="uid"]')
+    LOCATOR_USERNAME_FIELD = (By.XPATH, "/html/body/table/tbody/tr/td/div/form/table/tbody/tr/td/input[@id='uid']")
     #localization of the password input string by xpath in the code of a web resource
-    LOCATOR_PASSWORD_FIELD = (By.XPATH, '//*[@id="passw"]')
+    LOCATOR_PASSWORD_FIELD = (By.XPATH, "/html/body/table/tbody/tr/td/div/form/table/tbody/tr/td/input[@id='passw']")
     #localization of the Login button by xpath in the code of a web resource
-    LOCATOR_LOGIN_BUTTON = (By.XPATH, '//*[@id="login"]/table/tbody/tr[3]/td[2]/input')
+    LOCATOR_LOGIN_BUTTON = (By.XPATH, '/html/body/table/tbody/tr/td/div/form/table/tbody/tr/td/input')
 
-    LOCATOR_FAIL_TEXT = (By.XPATH, '//*[@id="_ctl0__ctl0_Content_Main_message"]')
+    LOCATOR_FAIL_TEXT = (By.XPATH, '/html/body/table/tbody/tr/td/div/p/span/text()')
 
     #entering in the "username" field
     def enter_username(self, word, browser):
