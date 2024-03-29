@@ -2,14 +2,14 @@ from selenium import webdriver
 import logging
 
 class BrowserFactory(object):
-    def browser_change(options):
-        logging.info(f'the {options} browser is selected')
-        if options == 'Chrome':
+    def browser_change(browser_type):
+        logging.info(f'the {browser_type} browser is selected')
+        if browser_type == 'Chrome':
             return webdriver.Chrome()
-        elif options == 'Edge':
+        elif browser_type == 'Edge':
             return webdriver.Edge()
-        elif options == 'Firefox':
+        elif browser_type == 'Firefox':
             return webdriver.Firefox()
-        elif options == 'Safari':
+        elif browser_type == 'Safari':
             return webdriver.Safari()
         
